@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<title>rot13</title>
+	<head>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		<link rel='stylesheet' href='style.css'></link>
+	</head>
+	<body>
+		<script>
+			const normalAlpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			const rot13Alpha = 'nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM';
+
+			function getInput() {
+				return document.getElementById('text').value;
+			}
+
+			function displayTranslation(str) {
+				document.getElementById('translated_text').innerHTML = `<p id='translated_text'>${str}</p>`;
+			}
+			
+			function rot13() {
+				const input = getInput();
+				const translation = input.replace(/[a-z]/gi, c => rot13Alpha[normalAlpha.indexOf(c)]);
+
+				displayTranslation(translation);
+			};
+		</script>
+		<div id='translation_area'>
+			<input type='text' id='text' name='text' placeholder='text'>
+			<button id='translator' onclick='rot13()'>Translate</button>
+		</div>
+		<div id='translation_results'>
+			<p id='translated_text'>Translated text will appear here.</p>
+		</div>
+	</body>
+</html>
