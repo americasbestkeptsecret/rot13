@@ -1,0 +1,18 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+#text, #translator {
+	text-align: center;
+	border-radius: 5px;
+}
+
+#translated_text {
+	border: none;
+	display: inline;
+	font-family: inherit;
+	font-size: inherit;
+	padding: none;
+	width: auto;
+}
